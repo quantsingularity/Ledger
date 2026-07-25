@@ -42,16 +42,17 @@ const REPOS = [
 ];
 ```
 
-To add, remove, or correct a project, edit this array directly. `domain` must match one of the six category codes used by the filter chips:
+To add, remove, or correct a project, edit this array directly. `domain` must match one of the seven category codes used by the filter chips:
 
-| Code             | Filter chip label   |
-| ---------------- | ------------------- |
-| `FULLSTACK.APPS` | Fullstack Apps      |
-| `INFRA.CORE`     | Platform Infra      |
-| `AGENTS.MULTI`   | Multi-Agent AI      |
-| `RESEARCH.DL`    | Deep Learning       |
-| `LIBS.ENGINES`   | Libraries & Engines |
-| `RESEARCH.NB`    | Notebooks           |
+| Code                 | Filter chip label   |
+| -------------------- | ------------------- |
+| `FULLSTACK.APPS`     | Fullstack Apps      |
+| `INFRA.CORE`         | Platform Infra      |
+| `AGENTS.MULTI`       | Multi-Agent AI      |
+| `RESEARCH.DL`        | Deep Learning       |
+| `RESEARCH.ANTHOLOGY` | Anthologies         |
+| `LIBS.ENGINES`       | Libraries & Engines |
+| `RESEARCH.NB`        | Notebooks           |
 
 No other part of the page needs to change. The ticker, table, counts, and filters all render from this one array.
 
