@@ -363,6 +363,9 @@
       }
       .panel__inner {
         padding: 0 28px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
       }
       .panel h2 {
         font-family: var(--mono);
@@ -372,51 +375,46 @@
         text-transform: uppercase;
         margin: 0 0 24px;
       }
-      .comment-block {
-        font-family: var(--mono);
-        font-size: 13.5px;
-        line-height: 2;
-        color: var(--text-dim);
-        border-left: 2px solid var(--rule);
-        padding-left: 18px;
-      }
-      .comment-block .cb-open,
-      .comment-block .cb-close {
-        color: var(--text-faint);
-      }
-      .comment-block .cb-line {
-        display: block;
-      }
-      .comment-block .cb-line b {
-        color: var(--text);
-        font-weight: 500;
-      }
-
-      .assert-list {
+      .kv-list {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
         font-family: var(--mono);
         font-size: 13.5px;
       }
-      .assert-row {
-        display: grid;
-        grid-template-columns: 120px 1fr;
-        gap: 14px;
-        padding: 11px 0;
+      .kv-row {
+        padding: 14px 0;
         border-bottom: 1px solid var(--rule-soft);
-        align-items: baseline;
       }
-      .assert-row:last-child {
+      .kv-row:last-child {
         border-bottom: none;
       }
-      .assert-key {
-        color: var(--teal);
+      .kv-key {
+        display: block;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+        margin-bottom: 6px;
       }
-      .assert-key::before {
-        content: "assert ";
-        color: var(--text-faint);
-      }
-      .assert-val {
+      .kv-val {
+        display: block;
         color: var(--text-dim);
         font-size: 12.8px;
+        line-height: 1.6;
+        padding-left: 18px;
+        border-left: 2px solid var(--rule);
+      }
+
+      .kv-list--build .kv-key {
+        color: var(--amber);
+      }
+      .kv-list--assert .kv-key {
+        color: var(--teal);
+      }
+      .kv-list--assert .kv-key::before {
+        content: "assert ";
+        color: var(--text-faint);
+        font-weight: 400;
       }
 
       /* ---------- INDEX / LEDGER ---------- */
@@ -820,7 +818,7 @@
             >GitHub ↗</a
           >
         </nav>
-        <span class="nav__tag" id="navTag">70 REPOS</span>
+        <span class="nav__tag" id="navTag">68 REPOS</span>
       </div>
     </header>
 
@@ -842,7 +840,7 @@
 
         <div class="hero__stats">
           <div class="stat">
-            <div class="stat__value">70</div>
+            <div class="stat__value">68</div>
             <div class="stat__label">Repositories</div>
           </div>
           <div class="stat">
@@ -875,64 +873,81 @@
         <div class="panel">
           <div class="panel__inner">
             <h2>What We Build</h2>
-            <div class="comment-block">
-              <span class="cb-line cb-open">/* WHAT WE BUILD</span>
-              <span class="cb-line">
-                * - <b>risk-aware</b> quantitative trading systems and portfolio
-                intelligence platforms</span
-              >
-              <span class="cb-line">
-                * - <b>decentralized finance</b> infrastructure, blockchain
-                analytics, and security frameworks</span
-              >
-              <span class="cb-line">
-                * - <b>multi-agent systems</b> for automation, compliance,
-                orchestration, and risk intelligence</span
-              >
-              <span class="cb-line">
-                * - <b>reproducible ML</b> pipelines, production-grade
-                backtests, and hardened smart contracts</span
-              >
-              <span class="cb-line cb-close"> */</span>
+            <div class="kv-list kv-list--build">
+              <div class="kv-row">
+                <span class="kv-key">RISK-AWARE TRADING</span>
+                <span class="kv-val"
+                  >Quantitative trading systems and portfolio intelligence
+                  platforms</span
+                >
+              </div>
+              <div class="kv-row">
+                <span class="kv-key">DECENTRALIZED FINANCE</span>
+                <span class="kv-val"
+                  >Infrastructure, blockchain analytics, and security
+                  frameworks</span
+                >
+              </div>
+              <div class="kv-row">
+                <span class="kv-key">MULTI-AGENT SYSTEMS</span>
+                <span class="kv-val"
+                  >Automation, compliance, orchestration, and risk
+                  intelligence</span
+                >
+              </div>
+              <div class="kv-row">
+                <span class="kv-key">REPRODUCIBLE ML</span>
+                <span class="kv-val"
+                  >Pipelines, production-grade backtests, and hardened smart
+                  contracts</span
+                >
+              </div>
+              <div class="kv-row">
+                <span class="kv-key">LIBRARIES &amp; ENGINES</span>
+                <span class="kv-val"
+                  >Low-latency C++ pricing, risk, and order-book engines with
+                  Python bindings</span
+                >
+              </div>
             </div>
           </div>
         </div>
         <div class="panel">
           <div class="panel__inner">
             <h2>Engineering Principles</h2>
-            <div class="assert-list">
-              <div class="assert-row">
-                <span class="assert-key">MODULAR</span
-                ><span class="assert-val"
-                  >clear separation of data, model, execution, and
+            <div class="kv-list kv-list--assert">
+              <div class="kv-row">
+                <span class="kv-key">MODULAR</span>
+                <span class="kv-val"
+                  >Clear separation of data, model, execution, and
                   infrastructure layers</span
                 >
               </div>
-              <div class="assert-row">
-                <span class="assert-key">REPRODUCIBLE</span
-                ><span class="assert-val"
-                  >deterministic experiments, fixed seeds, and published
+              <div class="kv-row">
+                <span class="kv-key">REPRODUCIBLE</span>
+                <span class="kv-val"
+                  >Deterministic experiments, fixed seeds, and published
                   artifacts</span
                 >
               </div>
-              <div class="assert-row">
-                <span class="assert-key">AUDITABLE</span
-                ><span class="assert-val"
-                  >explainability, evidence aggregation, and regulatory-grade
+              <div class="kv-row">
+                <span class="kv-key">AUDITABLE</span>
+                <span class="kv-val"
+                  >Explainability, evidence aggregation, and regulatory-grade
                   logging</span
                 >
               </div>
-              <div class="assert-row">
-                <span class="assert-key">PERFORMANT</span
-                ><span class="assert-val"
-                  >measurable benchmarks across latency, backtests, and CI
+              <div class="kv-row">
+                <span class="kv-key">PERFORMANT</span>
+                <span class="kv-val"
+                  >Measurable benchmarks across latency, backtests, and CI
                   pipelines</span
                 >
               </div>
-              <div class="assert-row">
-                <span class="assert-key">SECURE</span
-                ><span class="assert-val"
-                  >hardened smart contracts, dependency scanning, continuous
+              <div class="kv-row">
+                <span class="kv-key">SECURE</span>
+                <span class="kv-val"
+                  >Hardened smart contracts, dependency scanning, continuous
                   monitoring</span
                 >
               </div>
@@ -951,7 +966,7 @@
             </div>
           </div>
           <div class="result-count" id="resultCount" aria-live="polite">
-            <b>70</b> / 70 repositories
+            <b>68</b> / 68 repositories
           </div>
         </div>
 
@@ -1241,23 +1256,9 @@
           domain: "FULLSTACK.APPS",
         },
         {
-          name: "QuantumBallot",
-          url: "https://github.com/QuantSingularity/QuantumBallot",
-          desc: "Blockchain-based election management platform for US voting with a custom ledger and QR-code voter verification",
-          lang: "TypeScript",
-          domain: "FULLSTACK.APPS",
-        },
-        {
           name: "FinFlow",
           url: "https://github.com/QuantSingularity/FinFlow",
           desc: "Financial workflow automation and orchestration platform with event-driven pipelines and approval routing",
-          lang: "TypeScript",
-          domain: "FULLSTACK.APPS",
-        },
-        {
-          name: "Predictron",
-          url: "https://github.com/QuantSingularity/Predictron",
-          desc: "Non-custodial on-chain prediction market and staking platform with SIWE wallet auth and an advisory-only AI signal layer",
           lang: "TypeScript",
           domain: "FULLSTACK.APPS",
         },
